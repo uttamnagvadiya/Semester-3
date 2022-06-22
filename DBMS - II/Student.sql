@@ -134,6 +134,3 @@ Insert into Student Values (105, 'Vimal Trivedi', '090200107103', 'BCY-3', 3, '1
 
 
 20.	Truncate Table Student
-
-
-
