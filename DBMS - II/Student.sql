@@ -147,7 +147,8 @@ Insert into Student Values (105, 'Vimal Trivedi', '090200107103', 'BCY-3', 3, '1
 
 
 --19. Write an SQL query to clone a new table Student_New from Student table with all data.
-	
+	Select * into Student_New 
+	From Student
 
 
 
