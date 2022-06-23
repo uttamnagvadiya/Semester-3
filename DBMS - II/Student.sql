@@ -23,7 +23,8 @@ Insert into Student Values (105, 'Vimal Trivedi', '090200107103', 'BCY-3', 3, '1
 
 --------------------------------------------------------------------------------------------------------------------------
 
-1.	Select *
+--1. Display Name of Student who belongs to either Semester 3 or 5. (Use IN & OR)
+	Select *
 	From Student
 	Where Sem in (3, 5)
 	-----------------
@@ -33,104 +34,122 @@ Insert into Student Values (105, 'Vimal Trivedi', '090200107103', 'BCY-3', 3, '1
 
 
 
-2.	Select Name, EnrollmentNo
+--2. Find Student Name & Enrollment No in which Student Id between 103 to 105.
+	Select Name, EnrollmentNo
 	From Student
 	Where StuID between 103 and 105
 
 
 
-3.	Select Name, EnrollmentNo, Email
+--3. Find Student Name & Enrollment No with their Email Who belongs to 5th Semester.
+	Select Name, EnrollmentNo, Email
 	From Student
 	Where Sem=5
 
 
-
-4.	Select Top 3 *
+--4. Display All the Details of first three students.
+	Select Top 3 *
 	From Student
 
 
-
-5.	Select Top 30 percent  Name, EnrollmentNo
+--5. Display Name & Enrollment no of first 30% Students who’s contact number ends with 7.
+	Select Top 30 percent  Name, EnrollmentNo
 	From Student
 	Where ContactNo like '%7'
 
 
 
-6.	Select Distinct Sem
+--6. Display Unique Semesters.
+	Select Distinct Sem
 	From Student
 
 
 
-7.	Select *
+--7. Retrieve All the Students who have no Enrollment.
+	Select *
 	From Student
 	Where EnrollmentNo is Null
 
 
 
-8.	Select *
+--8. Find All Students whose Name does not start with ‘V’.
+	Select *
 	From Student
 	Where Name Not like 'V%'
 
 
 
-9.	Select *
+--9. Find All Students in which Email Contains ‘3@G’ & Only Six Characters.
+	Select *
 	From Student
 	Where Email like '%3@g%' and Name like '______'
 
 
 
-10.	Select *
+--10. Find Out All the Students whose First Name Starts with F And third character must be R.
+	Select *
 	From Student
 	Where Name like 'F_R%'
 
 
 
-11.	Select *
+--11. Find All the Student Details whose Contact No contains 877.
+	Select *
 	From Student
 	Where ContactNo like '%877%'
 
 
 
-12.	Select *
+--12. Display Student Name in Which Student belongs to Semester 3 & Contact Number Does Not Contains 8 & 9.
+	Select *
 	From Student
 	Where Sem=3 and ContactNo Not Like '%[8, 9]%'
 
 
 
-13.	Select *
+--13. Find Students who born after date 01-01-1990.
+	Select *
 	From Student
 	Where BirthDate > '1990-01-01'
 
 
 
-14.	Update Student
+--14. Update Division to BCX-5 & Semester 5 whose Student Id Is 102.
+	Update Student
 	Set Division='BCX-5', Sem=5
 	Where StuID=102
 
 
 
-15.	Update Student
+--15. Change the Student’s Name to Firoz Sherasiya in which Email is Firoz.Me@Gmail.Com & Contact No is 8885999922.
+	Update Student
 	Set Name='Firoz Sherasiya'
 	Where Email='firoz.me@gmail.com' and ContactNo='8885999922'
 
 
 
-16.	Alter Table Student 
+--16. Add one more Column City Varchar (50) in Student Table.
+	Alter Table Student 
 	Add City varchar(50)
 
 	
 
-17.	Delete From Student
+--17. Remove All BCX-3 Division Students.
+	Delete From Student
 	Where Division='BCX-3'
 
 	
 
-18.	Sp_Rename 'Student.Email', 'EmailAddress', 'Column'
+--18. Change Column Name Email to EmailAddress.
+	Sp_Rename 'Student.Email', 'EmailAddress', 'Column'
 
 
 
-19.	
+
+--19. Write an SQL query to clone a new table Student_New from Student table with all data.
+	
 
 
 
-20.	Truncate Table Student
+--20. Remove All the Data from Student Table Using Truncate.
+	Truncate Table Student
