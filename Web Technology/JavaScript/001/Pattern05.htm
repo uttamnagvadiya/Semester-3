@@ -1,0 +1,23 @@
+<!-- 5 5 5 5 *
+     5 5 5 * *
+     5 5 * * *
+     5 * * * *
+     * * * * * -->
+
+<html>
+    <head></head>
+    <body>
+        <script>
+            row = prompt("Enter Rows: ");
+            for(i=1;i<=row;i++){
+                for(j=i;j<row;j++){
+                    document.write("5 ");
+                }
+                for(k=1;k<=i;k++){
+                    document.write("* ");
+                }
+                document.write("<br/>");
+            }
+        </script>
+    </body>
+</html>

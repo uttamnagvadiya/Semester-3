@@ -1,0 +1,131 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            rows = prompt("Enter Rows: ");
+            // 1 
+            // 1 2 
+            // 1 2 3 
+            // 1 2 3 4 
+            // 1 2 3 4 5 
+            document.write("------------------ Pattern 01 ---------------------");
+            for (i=0; i<=rows; i++){
+                for (j=1; j<=i; j++){
+                    document.write(j+" ");
+                }
+                document.write("<br>");
+            }
+            document.write("<br>");
+
+
+            // 1 
+            // 2 3 
+            // 3 4 5 
+            // 4 5 6 7 
+            document.write("------------------ Pattern 02 ---------------------");
+            for (i=0; i<=rows; i++){
+                for (j=i; j<i+i; j++){
+                    document.write(j+" ");
+                }
+                document.write("<br>");
+            }
+            document.write("<br>");
+
+
+            // 1 
+            // 2 2 
+            // 3 3 3 
+            // 4 4 4 4 
+            // 5 5 5 5 5 
+            document.write("------------------ Pattern 03 ---------------------");
+            for (i=0; i<=rows; i++){
+                for (j=1; j<=i; j++){
+                    document.write(i+" ");
+                }
+                document.write("<br>");
+            }
+            // document.write("<br>");
+
+
+            //     1
+            //    2 2
+            //   3 3 3
+            //  4 4 4 4
+            // 5 5 5 5 5
+            document.write("------------------ Pattern 04 ---------------------");
+            for(i=0;i<=rows;i++){
+                for(j=i;j<=rows;j++){
+                    document.write(" ");
+                }
+                for(k=1;k<=i;k++){
+                    document.write(i+" ");
+                }
+                document.write("<br>");
+            }
+            document.write("<br>");
+
+
+            // 1
+            // 2 3 
+            // 4 5 6
+            // 7 8 9 10
+            document.write("------------------ Pattern 05 ---------------------");
+            $=1;
+            for (i=0; i<=rows; i++){
+                for (j=1; j<=i; j++){
+                    document.write(($++)+" ");
+                }
+                document.write("<br>");
+            }
+            document.write("<br>");
+
+
+            // 1
+            // 0 1
+            // 1 0 1
+            // 0 1 0 1
+            // 1 0 1 0 1
+            document.write("------------------ Pattern 06 ---------------------");
+            for (i=0; i<=rows; i++){
+                for (j=i; j>=1; j--){
+                    document.write(j%2+" ");
+                }
+                document.write("<br>");
+            }
+            document.write("<br>");
+
+
+            //     1
+            //    A B 
+            //   2 3 4
+            //  C D E F
+            // 5 6 7 8 9
+            document.write("------------------ Pattern 07 ---------------------");
+            u=1;
+            c = 'A';
+
+            for (i=0; u<=rows; i=j){
+                for (k=u; k<rows; k++){
+                    document.write("5");
+                }
+                for (j=i; j<(i+u); j++){
+                    document.write(j+" ");
+                }
+                document.write("<br>");
+                u++;
+
+                if (u <= rows){
+                    for (p=u; p<rows; p++){
+                        document.write("5");
+                    }
+                    for (t=1; t<=u; t++){
+                        document.write(c+" ");
+                        c++;
+                    }
+                    document.write("<br>");
+                    u++;
+                }
+            }
+        </script>
+    </body>
+</html>

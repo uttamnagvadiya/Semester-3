@@ -1,0 +1,25 @@
+<!-- * * * * *
+     * 5 5 5 *
+     * 5 5 5 *
+     * 5 5 5 *
+     * * * * * -->
+
+<html>
+    <head></head>
+    <body>
+        <script>
+            row = prompt("Enter Rows: ");
+            for (i=1; i<=row; i++){
+                for (j=1; j<=row; j++){
+                    if(i==1 || i==row ||j==1 || j==row){
+                        document.write("* ");
+                    }
+                    else{
+                        document.write("5 ");           //5 == space
+                    }
+                }
+                document.write("<br>");
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!-- 5 * * * * *
+     5 5 * * * *
+     5 5 5 * * *
+     5 5 5 5 * *
+     5 5 5 5 5 *
+
+     s* * * * *
+     ss* * * *
+     sss* * *
+     ssss* *
+     sssss* -->
+
+<html>
+    <head></head>
+    <body>
+        <script>
+            row = prompt("Enter Rows: ");
+            for(i=row;i>0;i--){
+                for(j=i;j<=row;j++){
+                    document.write("5 ");
+                }
+                for(k=i;k>0;k--){
+                    document.write("* ");
+                }
+                document.write("<br/>");
+            }
+
+            document.write("<br>");
+
+            for(i=row;i>0;i--){
+                for(j=i;j<=row;j++){
+                    document.write("s");
+                }
+                for(k=i;k>0;k--){
+                    document.write("* ");
+                }
+                document.write("<br/>");
+            }
+        </script>
+    </body>
+</html>
