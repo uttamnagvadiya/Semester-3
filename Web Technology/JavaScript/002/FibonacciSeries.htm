@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Fibonacci Seies</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			x=parseInt(prompt("Enter Number x"));
+			n1=0;
+			n2=1;
+			document.write("Fibbonacci Serise : ");
+			for(i=1;i<x;i++)
+			{
+				document.write(n1+",");
+				flag=n1+n2;
+				n1=n2;
+				n2=flag;
+			}
+			document.write(n1);
+		</script>
+	</body>
+</html>
