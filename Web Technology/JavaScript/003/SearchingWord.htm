@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		s1 = prompt("Enter String : ");
+		word = prompt("Enter Word : ");
+		lenstr = s1.length;
+		str = s1.toLowerCase();
+
+
+		const array = str.split(" ");
+		flag=0;
+		for(i=0; i<array.length; i++){
+			if (array[i].localeCompare(word)==0){
+				document.write("Index of Mathching Word : "+i);
+			}
+			else{
+				flag++;
+			}
+		}
+	</script>
+
+</body>
+</html>

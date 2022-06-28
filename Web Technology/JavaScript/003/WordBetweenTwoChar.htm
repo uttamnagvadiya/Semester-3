@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		word = prompt("Enter Word : ");
+		word = word.toLowerCase();
+
+		x1 = word.indexOf("a");
+		x2 = word.lastIndexOf("a");
+
+		document.write("Word between two Char : "+word.substr(x1+1, x2-1));
+
+	</script>
+</body>
+</html>
