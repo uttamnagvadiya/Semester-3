@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		a = parseInt(prompt("Enter Number : "));
+		x=0;
+
+		for (i=a; i>0;){
+			x = (x*10) + (i%10);
+			i=parseInt(i/10);
+		}
+		if (a==x){
+			document.write(a+" is Palindrome Number.");
+		}
+		else{
+			document.write(a+" is not Palindrome Number.");
+		}
+	</script>
+</body>
+</html>
