@@ -120,7 +120,7 @@ Insert into Employee Values (10, 'John', 'Male', '01-Jan-15', 8800, 'London')
 
 
 --16. Produce output like <Ename> works at <city> and earns <salary> (In single column).
-	Select EName + ' Works at ' + City + ' and Earns '+ Convert(varchar(20), Salary)
+	Select EName + ' Works at ' + City + ' and Earns '+ Convert(varchar(20), Salary) + '.'
 	From Employee
 
 
@@ -168,7 +168,8 @@ Insert into Employee Values (10, 'John', 'Male', '01-Jan-15', 8800, 'London')
 
 
 --23. Display name of the employees and their experience in years.
-	
+	Select EName, DateDiff(Year, JoiningDate, getDate()) as Exp_Year
+	From Employee
 
 
 --24. Remove column department from employee table.
