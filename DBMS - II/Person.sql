@@ -1,20 +1,20 @@
 
 Create Table Person
 (
-	PersonID		int				Primary Key Identity (101, 1),
+	PersonID		int		Primary Key Identity (101, 1),
 	PersonName		varchar(100)	Not Null,
-	DepartmentID	int				Foreign Key References Department(DepartmentID),
+	DepartmentID		int		Foreign Key References Department(DepartmentID),
 	Salary			decimal(8, 2)	Not Null,
-	JoiningDate		datetime		Not Null,
+	JoiningDate		datetime	Not Null,
 	City			varchar(100)	Not Null
 )
 
 Create Table Department
 (
-	DepartmentId	int				Primary Key Identity (1, 1),
+	DepartmentId	int		Primary Key Identity (1, 1),
 	DepartmentName	varchar(100)	Not Null	Unique,
-	DepartmentCode	varchar(50)		Not Null	Unique,
-	Location		varchar(50)		Not Null
+	DepartmentCode	varchar(50)	Not Null	Unique,
+	Location	varchar(50)	Not Null
 )
 
 
@@ -142,19 +142,19 @@ Insert into Person Values ('Mohit Maru', 5, 14000, '2000-05-25', 'Jamnagar')
 
 
 
---13. Combine person name’s first three characters with city name’s last three characters in single column.\
+--13. Combine person nameâ€™s first three characters with city nameâ€™s last three characters in single column.\
 	Select Left(PersonName, 3) + Right(City, 3) as Combine_Name
 	From Person
 	 
 
 
---14. Give 10% increment in Computer department employee’s salary.
+--14. Give 10% increment in Computer department employeeâ€™s salary.
 	 Update Person 
 	 Set Salary = (Salary + Salary * 0.1)
 
 
 
---15. Display all the person name’s who’s joining dates difference with current date is more than 365 days.
+--15. Display all the person nameâ€™s whoâ€™s joining dates difference with current date is more than 365 days.
 	Select PersonName, dateDiff(day, JoiningDate, getDate()) as Days
 	From Person
 	Where dateDiff(day, JoiningDate, getDate()) > 365
