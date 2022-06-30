@@ -3,7 +3,7 @@ Create Table Person
 (
 	PersonID		int		Primary Key Identity (101, 1),
 	PersonName		varchar(100)	Not Null,
-	DepartmentID	int			Foreign Key References Department(DepartmentID),
+	DepartmentID		int		Foreign Key References Department(DepartmentID),
 	Salary			decimal(8, 2)	Not Null,
 	JoiningDate		datetime	Not Null,
 	City			varchar(100)	Not Null
