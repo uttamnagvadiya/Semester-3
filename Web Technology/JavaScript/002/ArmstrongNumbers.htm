@@ -1,0 +1,29 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+
+            const initialNumber = parseInt(prompt("Enter x : "));
+            const finalNumber = parseInt(prompt("Enter y : "));
+
+            document.write("Armstrong Numbers between "+initialNumber+" to "+finalNumber+" :<br>");
+
+            for(let i=initialNumber; i<=finalNumber; i++){
+                let numberOfDigits = i.toString().length;
+                let temp = i;
+                let sum=0;
+
+                while(temp > 0){
+                    let rem = temp%10;
+                    sum += Math.pow(rem, numberOfDigits);
+                    temp = parseInt(temp/10);
+                }
+
+                if (sum == i){
+                    document.write(i+"<br>");
+                }
+            }
+          
+        </script>
+    </body>
+</html>

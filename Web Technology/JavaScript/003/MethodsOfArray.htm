@@ -1,0 +1,24 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var demo = ["Karan","Kishan","Devanshu","Mubin","Divyank"];
+
+            document.write("Sorted Array : "+ demo.sort()+"<br>");
+            document.write("Conerted in String : "+demo.toString()+"<br>");
+            document.write("Join All Elements : "+demo.join(" * ")+"<br>");
+            document.write("Poping Element : "+demo.pop()+"<br>");
+            document.write("Pushing Element : "+demo.push("Uttam")+"<br>");
+            document.write("Shift Element : "+demo.shift()+"<br>");
+            document.write("Unshift Element : "+demo.unshift("Kalia")+"<br>");
+             
+            var demo2 = ["Doraemon", "Nobita", "Sizuka"];
+            var demo3 = demo.concat(demo2);
+            document.write("Merging Two Array : "+demo3+"<br>");
+            demo3.splice(1, 0, "Bheem", "Jaggu");
+            document.write("Splice Elements : "+demo3+"<br>");
+            document.write("Slice Elements : "+demo3.slice(2, 7)+"<br>");
+
+        </script>
+    </body>
+</html>

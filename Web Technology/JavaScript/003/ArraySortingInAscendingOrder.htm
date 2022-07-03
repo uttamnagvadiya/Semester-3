@@ -1,0 +1,50 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            n = parseInt(prompt("Enter the number of elements"));
+            let sortArray = new Array(n);
+            for(i=0; i<n; i++){
+                sortArray[i] = parseInt(prompt("Enter the Element Index "+i+" is :"));
+            }
+            document.write("Original Array : [");
+            for(i=0; i<n; i++){
+                document.write(sortArray[i]+", ");
+            }
+            document.write("]<br>");
+
+            for(i=0; i<n; i++){
+                for(j=i; j<n; j++){
+                    if(sortArray[i] > sortArray[j]){
+                        temp = sortArray[i];
+                        sortArray[i] = sortArray[j];
+                        sortArray[j] = temp;
+                    }
+                }
+            }
+            document.write("Sorted Array : [");
+            for(i=0; i<n; i++){
+                document.write(sortArray[i]+", ");
+            }
+            document.write("]");
+
+
+    //Method-2
+            // n = prompt("Enter n : ");
+            // var sortArray = new Array();
+
+            // for(i=0; i<n; i++){
+            //     sortArray[i] = prompt("Enter Element Index is "+i+" : ");
+            // }
+
+            // document.write("Original Array : ["+sortArray+"]<br>");
+           
+
+            // sortArray.sort(function(a, b){
+            //                 return a-b;
+            //             });
+            // document.write("Sorted Array : ["+sortArray+"]");
+
+        </script>
+    </body>
+</html>

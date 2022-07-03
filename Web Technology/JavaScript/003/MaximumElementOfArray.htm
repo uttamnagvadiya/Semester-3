@@ -1,0 +1,37 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            n = parseInt(prompt("Enter Number :"))
+            var maxArray = new Array();
+
+            for (i=0; i<n; i++){
+                maxArray[i] = parseInt(prompt("Enter Element Index "+i+"is :"));
+            }
+            document.write("Original Array : [");
+            for(i=0; i<n; i++){
+                document.write(maxArray[i]+", ");
+            }
+            document.write("]<br>");
+//Maximum
+            max = maxArray[0];
+            for(j=0; j<maxArray.length; j++){
+                if (maxArray[j] > max){
+                    max = maxArray[j];
+                }
+            }
+            document.write("The Largest Element of this Array is : "+max+"<br>");
+//Minimum
+            min = maxArray[0];
+            for(j=0; j<maxArray.length; j++){
+                if (maxArray[j] < min){
+                    max = maxArray[j];
+                }
+            }
+            document.write("The Smallest Element of this Array is : "+max);
+
+        </script>
+    </body>
+</html>
