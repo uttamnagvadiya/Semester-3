@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<input type="button" name="" value="Start" onclick="startTimer()">
+	<input type="button" name="" value="Stop" onclick="stopTimer()">
+	<input type="button" name="" value="Reset" onclick="resetTimer()">
+	<h1 id="counter"></h1>
+
+	<script type="text/javascript">
+		var x=0;
+		var c;
+		function startTimer(){
+			c = setInterval(printTimer);
+		}
+		function printTimer(){
+			
+			x++;
+			var temp = document.getElementById("counter");
+			temp.innerHTML = x/100;
+		}
+		function resetTimer(){
+			stopTimer();
+			x=0;
+			var temp = document.getElementById("counter");
+			temp.innerHTML = "0";
+		}
+		function stopTimer(){
+			clearInterval(c);
+		}
+	</script>
+</body>
+</html>
