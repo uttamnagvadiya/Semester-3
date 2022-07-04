@@ -66,9 +66,10 @@ public class Stack {
         Stack st = new Stack();
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Option you want to perform : ");
+        
 
         while(true){
+            System.out.print("Enter Option you want to perform : ");
             switch(sc.nextInt()){
                 case 1 :
                     System.out.print("Enter the Elements in Stack : ");
