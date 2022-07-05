@@ -36,7 +36,7 @@ public class Stack {
     }
 
     public int peep(int index){
-        if (index <= -1 || index >= 8){
+        if (index <= -1 || index >= 10){
             System.out.println("Invalid Enter the Index...");
             return 0;
         }
@@ -59,7 +59,7 @@ public class Stack {
         for(int i=0; i<stack.length; i++){
             System.out.print(stack[i]+", ");
         }
-        System.out.print("]");
+        System.out.println("]");
     }
     public static void main(String[] args) {
 
@@ -70,23 +70,27 @@ public class Stack {
 
         while(true){
             System.out.print("Enter Option you want to perform : ");
-            switch(sc.nextInt()){
-                case 1 :
+            switch(sc.next()){
+                case "Push" :
                     System.out.print("Enter the Elements in Stack : ");
                     st.push(sc.nextInt()); 
                     break;
     
-                case 2 : 
+                case "Pop" : 
                     System.out.println(st.pop());
                     break;
-    
-                case 3 :
-                    System.out.print("Enter Index : ");
-                    int index = sc.nextInt();
-                    st.peep(index);
+
+                case "Peek" : 
+                    System.out.println(st.peek());
                     break;
     
-                case 4 :
+                case "Peep" :
+                    System.out.print("Enter Index : ");
+                    int index = sc.nextInt();
+                    System.out.println(st.peep(index));
+                    break;
+    
+                case "Change" :
                     System.out.print("Enter Index :");
                     int cngeIndex = sc.nextInt();
                     System.out.print("Enter Value : ");
@@ -94,11 +98,11 @@ public class Stack {
                     st.change(cngeIndex, cngeValue);
                     break;
     
-                case 5 :
+                case "Display" :
                     st.displayStack();
                     break;
     
-                case 6 :
+                case "Exit" :
                     System.exit(0);
                     break;
             }

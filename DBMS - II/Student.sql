@@ -1,12 +1,12 @@
 Create Table Student(
-	StuID int,
-	Name varchar(100),
-	EnrollmentNo varchar(12),
-	Division varchar(50),
-	Sem int,
-	BirthDate datetime,
-	Email varchar(100),
-	ContactNo varchar(50)
+	StuID			int,
+	Name			varchar(100),
+	EnrollmentNo	varchar(12),
+	Division		varchar(50),
+	Sem				int,
+	BirthDate		datetime,
+	Email			varchar(100),
+	ContactNo		varchar(50)
 );
 
 
