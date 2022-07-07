@@ -10,67 +10,73 @@
     
     .<div class="container-sm">
         <div class="row">
-            <div class="col-4">
+            <div class="col-2">
                 <input type="text" id="display" class="">
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">7</button>
-
+            <div class="col-1">
+                <button class="btn btn-primary" onclick="back(this)"><<</button>
             </div>
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">8</button>
-                
-            </div>
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">9</button>
-                
-            </div>
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">*</button>
-                
+            <div class="col-1">
+                <button class="btn btn-primary" onclick="document.getElementById('display').value='';">AC</button>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">4</button>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="input(this)">7</button>
 
             </div>
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">5</button>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="input(this)">8</button>
                 
             </div>
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">6</button>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="input(this)">9</button>
                 
             </div>
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">/</button>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="operations(this)">*</button>
                 
             </div>
         </div>
 
         <div class="row">
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">1</button>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="input(this)">4</button>
 
             </div>
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">2</button>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="input(this)">5</button>
                 
             </div>
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">3</button>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="input(this)">6</button>
                 
             </div>
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">-</button>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="operations(this)">/</button>
                 
             </div>
         </div>
 
         <div class="row">
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">.</button>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="input(this)">1</button>
 
             </div>
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">0</button>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="input(this)">2</button>
                 
             </div>
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">=</button>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="input(this)">3</button>
                 
             </div>
-            <div class="col-2 my-3"><button class="btn btn-primary" onclick="input(this)">+</button>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="operations(this)">-</button>
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="input(this)">.</button>
+
+            </div>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="input(this)">0</button>
+                
+            </div>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="showAnswer()">=</button>
+                
+            </div>
+            <div class="col-1 my-3"><button class="btn btn-primary" onclick="operations(this)">+</button>
                 
             </div>
         </div>
@@ -78,7 +84,41 @@
 
     <script>
         function input(n){
-            a = document.getElementById()
+            a = document.getElementById("display");
+            a.value += n.innerHTML;
+        }
+        function operations(op){
+            a = document.getElementById("display");
+            oldValue = parseInt(a.value);
+            a.value = "";
+            ut = op.innerHTML;
+        }
+        function showAnswer(){
+            a = document.getElementById("display");
+            newValue = parseInt(a.value);
+
+            if(ut == '+'){
+                ans = oldValue + newValue;
+            }
+            else if (ut == '-'){
+                ans = oldValue - newValue;
+            }
+            else if (ut == '*'){
+                ans = oldValue * newValue;
+            }
+            else if (ut == '/'){
+                ans = oldValue / newValue;
+            }
+            a.value = ans;
+        }
+
+        function back(){
+            a = document.getElementById("display");
+            backValue = a.value;
+            a.value = backValue.substring(0,backValue.length-1);
+        }
+        function clear(){
+            a = document.getElementById("display").value = "";
         }
     </script>
 
