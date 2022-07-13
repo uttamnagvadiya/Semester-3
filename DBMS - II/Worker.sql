@@ -13,11 +13,11 @@ Create Table Department(
 
 
 Create Table Person(
-WorkerID				int				Primary Key Identity(101, 1),
-	FirstName			varchar(100)		Not Null,
-	LastName			varchar(100)		Not Null,
-	Salary				decimal(8, 2)		Not Null,
-	JoiningDate			datetime			Not Null,
+	WorkerID		int				Primary Key Identity(101, 1),
+	FirstName		varchar(100)	Not Null,
+	LastName		varchar(100)	Not Null,
+	Salary			decimal(8, 2)	Not Null,
+	JoiningDate		datetime	Not Null,
 	DepartmentID		int				Foreign Key References Department(DepartmentID),
 	DesignationID		int				Foreign Key	References Designation(DesignationID)
 )
@@ -51,7 +51,11 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+<<<<<<< HEAD
 				-->>>>>>>>>>>>>>>� Stored Procedures �<<<<<<<<<<<<<<<--
+=======
+				-->>>>>>>>>>>>>>>â€¢ Stored Procedures â€¢<<<<<<<<<<<<<<<--
+>>>>>>> 536eb4e2653e30ed748284b57a3572626afcbbf8
 
 
 --1. All tables Insert, Update & Delete
@@ -269,7 +273,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 
---4. Create Procedure that takes Department Name & Designation Name as Input and Returns a table with Worker’s First Name, Salary, Joining Date & Department Name.
+--4. Create Procedure that takes Department Name & Designation Name as Input and Returns a table with Workerâ€™s First Name, Salary, Joining Date & Department Name.
 	
 	-- PR_Person_SelectBydpNameANDdsName 'Admin', 'Clerk'
 	Create Procedure PR_Person_SelectBydpNameANDdsName
@@ -290,7 +294,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 
---5. Create Procedure that takes FirstName as an input parameter and displays’ all the details of the worker with their department & designation name.
+--5. Create Procedure that takes FirstName as an input parameter and displaysâ€™ all the details of the worker with their department & designation name.
 
 	-- PR_Person_SelectByFirstName 'Bhoomi'
 	Create Procedure PR_Person_SelectByFirstName
@@ -335,7 +339,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		
 
-				-->>>>>>>>>>>>>>>� User Defined Functions �<<<<<<<<<<<<<<<--
+				-->>>>>>>>>>>>>>>• User Defined Functions •<<<<<<<<<<<<<<<--
 
 
 --1. Create a table valued function which accepts DepartmentID as a parameter & returns a worker table based on DepartmentID.
@@ -429,7 +433,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-				-->>>>>>>>>>>>>>>� Views �<<<<<<<<<<<<<<<--
+				-->>>>>>>>>>>>>>>• Views •<<<<<<<<<<<<<<<--
 
 
 --1. Create a view that display first 100 workers details.
@@ -457,7 +461,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 
---3. Create a view that displays Worker�s first name with their salaries & joining date, it also displays duration column which is difference of joining date with respect to current date.
+--3. Create a view that displays Worker’s first name with their salaries & joining date, it also displays duration column which is difference of joining date with respect to current date.
 
 	Create View WorkerInfo
 	as
@@ -484,7 +488,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 
---5. Create a view that displays worker names who don�t have either in any department or designation.
+--5. Create a view that displays worker names who don’t have either in any department or designation.
 
 	Create View No_departmentORdesignation
 	as
