@@ -13,13 +13,13 @@ Create Table Department(
 
 
 Create Table Person(
-	WorkerID			int				Primary Key Identity(101, 1),
-	FirstName			varchar(100)	Not Null,
-	LastName			varchar(100)	Not Null,
-	Salary				decimal(8, 2)	Not Null,
-	JoiningDate			datetime		Not Null,
-	DepartmentID		int				Foreign Key References Department(DepartmentID),
-	DesignationID		int				Foreign Key	References Designation(DesignationID)
+WorkerID			int			Primary Key Identity(101, 1),
+	FirstName		varchar(100)		Not Null,
+	LastName		varchar(100)		Not Null,
+	Salary			decimal(8, 2)		Not Null,
+	JoiningDate		datetime		Not Null,
+	DepartmentID		int			Foreign Key References Department(DepartmentID),
+	DesignationID		int			Foreign Key	References Designation(DesignationID)
 )
 
 
@@ -51,7 +51,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-				-->>>>>>>>>>>>>>>• Stored Procedures •<<<<<<<<<<<<<<<--
+				-->>>>>>>>>>>>>>>â€¢ Stored Procedures â€¢<<<<<<<<<<<<<<<--
 
 
 --1. All tables Insert, Update & Delete
@@ -136,8 +136,8 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 				LastName		=	@Lname,	
 				Salary			=	@salary,
 				JoiningDate		=	@joindate,
-				DepartmentID	=	@dpartID,
-				DesignationID	=	@designID			
+				DepartmentID		=	@dpartID,
+				DesignationID		=	@designID			
 								
 			Where
 				WorkerID	=	@workerID
@@ -153,9 +153,9 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 	Begin
 		Update Department
 		Set
-			DepartmentName	=	@Dpartname
+			DepartmentName	= @Dpartname
 		Where
-			DepartmentID	=	@DpartID
+			DepartmentID = @DpartID
 	End
 ---------------------
 
@@ -270,7 +270,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 
---4. Create Procedure that takes Department Name & Designation Name as Input and Returns a table with Worker’s First Name, Salary, Joining Date & Department Name.
+--4. Create Procedure that takes Department Name & Designation Name as Input and Returns a table with Workerâ€™s First Name, Salary, Joining Date & Department Name.
 	
 	-- PR_Person_SelectBydpNameANDdsName 'Admin', 'Clerk'
 	Create Procedure PR_Person_SelectBydpNameANDdsName
@@ -291,7 +291,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 
---5. Create Procedure that takes FirstName as an input parameter and displays’ all the details of the worker with their department & designation name.
+--5. Create Procedure that takes FirstName as an input parameter and displaysâ€™ all the details of the worker with their department & designation name.
 
 	-- PR_Person_SelectByFirstName 'Bhoomi'
 	Create Procedure PR_Person_SelectByFirstName
@@ -335,8 +335,12 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		
+<<<<<<< HEAD
 
 				-->>>>>>>>>>>>>>>• User Defined Functions •<<<<<<<<<<<<<<<--
+=======
+				-->>>>>>>>>>>>>>>â€¢ User Defined Functions â€¢<<<<<<<<<<<<<<<--
+>>>>>>> 6d3fc0a94f63063dfbc82af8de4c3c881152799f
 
 
 --1. Create a table valued function which accepts DepartmentID as a parameter & returns a worker table based on DepartmentID.
@@ -429,8 +433,12 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 	-- Select DATEADD(year, DATEDIFF(year, 0, GETDATE()), 0) AS StartOfYear
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+<<<<<<< HEAD
 
 				-->>>>>>>>>>>>>>>• Views •<<<<<<<<<<<<<<<--
+=======
+				-->>>>>>>>>>>>>>>â€¢ Views â€¢<<<<<<<<<<<<<<<--
+>>>>>>> 6d3fc0a94f63063dfbc82af8de4c3c881152799f
 
 
 --1. Create a view that display first 100 workers details.
@@ -445,6 +453,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 --2. Create a view that displays designation wise maximum, minimum & total salaries.
+<<<<<<< HEAD
 
 	Create View Designation_Wise_Salaries
 	as
@@ -495,3 +504,8 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 	OR DesignationID is Null
 
 	Select * From No_departmentORdesignation
+=======
+--3. Create a view that displays Workerâ€™s first name with their salaries & joining date, it also displays duration column which is difference of joining date with respect to current date.
+--4. Create a view which shows department & designation wise total number of workers.
+--5. Create a view that displays worker names who donâ€™t have either in any department or designation.
+>>>>>>> 6d3fc0a94f63063dfbc82af8de4c3c881152799f
