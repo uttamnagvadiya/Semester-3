@@ -13,13 +13,13 @@ Create Table Department(
 
 
 Create Table Person(
-WorkerID			int			Primary Key Identity(101, 1),
-	FirstName		varchar(100)		Not Null,
-	LastName		varchar(100)		Not Null,
-	Salary			decimal(8, 2)		Not Null,
-	JoiningDate		datetime		Not Null,
-	DepartmentID		int			Foreign Key References Department(DepartmentID),
-	DesignationID		int			Foreign Key	References Designation(DesignationID)
+WorkerID				int				Primary Key Identity(101, 1),
+	FirstName			varchar(100)		Not Null,
+	LastName			varchar(100)		Not Null,
+	Salary				decimal(8, 2)		Not Null,
+	JoiningDate			datetime			Not Null,
+	DepartmentID		int				Foreign Key References Department(DepartmentID),
+	DesignationID		int				Foreign Key	References Designation(DesignationID)
 )
 
 
@@ -100,8 +100,7 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 		)
 	End
 ---------------------
-	select*from Department
-	
+
 	-- PR_Designation_Insert 'Other'
 	Create Procedure PR_Designation_Insert
 	@DesignName		varchar(100)
@@ -335,12 +334,8 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		
-<<<<<<< HEAD
 
 				-->>>>>>>>>>>>>>>• User Defined Functions •<<<<<<<<<<<<<<<--
-=======
-				-->>>>>>>>>>>>>>>â€¢ User Defined Functions â€¢<<<<<<<<<<<<<<<--
->>>>>>> 6d3fc0a94f63063dfbc82af8de4c3c881152799f
 
 
 --1. Create a table valued function which accepts DepartmentID as a parameter & returns a worker table based on DepartmentID.
@@ -433,12 +428,8 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 	-- Select DATEADD(year, DATEDIFF(year, 0, GETDATE()), 0) AS StartOfYear
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-<<<<<<< HEAD
 
 				-->>>>>>>>>>>>>>>• Views •<<<<<<<<<<<<<<<--
-=======
-				-->>>>>>>>>>>>>>>â€¢ Views â€¢<<<<<<<<<<<<<<<--
->>>>>>> 6d3fc0a94f63063dfbc82af8de4c3c881152799f
 
 
 --1. Create a view that display first 100 workers details.
@@ -453,7 +444,6 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 --2. Create a view that displays designation wise maximum, minimum & total salaries.
-<<<<<<< HEAD
 
 	Create View Designation_Wise_Salaries
 	as
@@ -504,8 +494,3 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 	OR DesignationID is Null
 
 	Select * From No_departmentORdesignation
-=======
---3. Create a view that displays Workerâ€™s first name with their salaries & joining date, it also displays duration column which is difference of joining date with respect to current date.
---4. Create a view which shows department & designation wise total number of workers.
---5. Create a view that displays worker names who donâ€™t have either in any department or designation.
->>>>>>> 6d3fc0a94f63063dfbc82af8de4c3c881152799f
