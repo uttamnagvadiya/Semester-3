@@ -10,7 +10,7 @@
             width: 15%;
             font-size: 20px;
         }
-        #miliSeconds, #seconds, #minutes, #hours{
+        #miliSeconds, #seconds, #minutes{
             width: 5%;
             margin: 10px;
             font-size: 30px;
@@ -18,13 +18,16 @@
             text-align: center;
 
         }
+        body{
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
 
-    
+    <img src="" alt="" id="img">    
     <div class="container" id="content">
-        <img src="times-up.jpg" alt="" id="img">
+        
         <div class="heading text-center text-dark h1 p-3">StopWatch</div>  
         
         <div class="buttons text-center p-2">
@@ -62,7 +65,9 @@
         function startTime(){
             var lmtTime = document.getElementById('timeLimit').value;
             if (document.getElementById('seconds').value == lmtTime){
-                document.getElementById('img').style.display = "body";        //Image
+                document.getElementById('content').innerHTML = "";
+                document.getElementById('img').src = 'times_up.jpg'
+                document.getElementById('img').style.display = "block";        //Image
             }
             else{
                 if (document.getElementById('miliSeconds').value == 99){

@@ -48,9 +48,11 @@ Insert into Person Values ('Priya ', 'Mehta', 25000, '1990-10-18', 2, Null)
 Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
--------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 				-->>>>>>>>>>>>>>>• Stored Procedures •<<<<<<<<<<<<<<<--
+
 
 --1. All tables Insert, Update & Delete
 	
@@ -211,7 +213,6 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 
-
 --2. All tables SelectAll (If foreign key is available than do write join and take columns on select list)
 
 	-- PR_Person_SelectAllwithFK
@@ -334,23 +335,163 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		
+
 				-->>>>>>>>>>>>>>>• User Defined Functions •<<<<<<<<<<<<<<<--
 
 
 --1. Create a table valued function which accepts DepartmentID as a parameter & returns a worker table based on DepartmentID.
+	
+	Create Function FN_Person_DepartmentID(@departmentID	int)
+	Returns Table
+	as
+	
+		Return(
+			Select * 
+			From Person
+			Where DepartmentID = @departmentID
+		)
+
+	Select * From FN_Person_DepartmentID(1)
+
+	
+
 --2. Create a table valued function which returns a table with unique city names from worker table.
+
+	Create Function FN_Person_uniqueCity()
+	Returns Table
+	as
+
+		Return(
+			Select Distinct City, WorkerID, FirstName, LastName, Salary, JoiningDate, DepartmentID, DesignationID 
+			From Person
+		)
+
+	Select * From FN_Person_uniqueCity()
+
+
+
 --3. Create a scalar valued function which accepts two parameters start date & end date, and returns a date difference in days.
+
+	Create Function FN_DateDiff_Days(
+		@startDate date,
+		@endDate date
+	)
+	Returns int
+	as
+	Begin
+		Return DateDiff(day, @startDate, @endDate)
+	End
+
+	Select dbo.FN_DateDiff_Days('2022-07-08', '2022-08-08')
+
+
+
 --4. Create a scalar valued function which accepts two parameters year in integer & month in integer and returns total days in passed month & year.
+
+	Create Function FN_NumberOfTotalDays(
+		@year	int,
+		@month	int 
+	)
+	Returns int
+	as
+	Begin
+		Declare @y	int,
+				@m	int,
+				@d	int
+
+			set	@y = (@year * 365);
+			set @m = (@month * 365) / 12;
+			set @d = @y + @m;
+
+			Return @d
+	End
+
+	Select dbo.FN_NumberOfTotalDays(1,6)
+
+
+
 --5. Create a scalar valued function which accepts two parameters year in integer & month in integer and returns first date in passed month & year.
 
+	alter Function FN_FirstDate(
+		@month	int,
+		@year	int 
+	)	
+	Returns varchar(25)
+	as
+	Begin
+		Return (
+			Select '01 - ' + Convert(varchar(10), @month) + ' - ' + Convert(varchar(10), @year)
+		)
+	End
 
+	Select dbo.FN_FirstDate(9, 2025)
+
+	-- Select DATEADD(year, DATEDIFF(year, 0, GETDATE()), 0) AS StartOfYear
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 				-->>>>>>>>>>>>>>>• Views •<<<<<<<<<<<<<<<--
 
 
 --1. Create a view that display first 100 workers details.
+
+	Create View WorkerDetails
+	as
+	Select Top 100 *
+	From Person
+
+	Select * From WorkerDetails
+
+
+
 --2. Create a view that displays designation wise maximum, minimum & total salaries.
+
+	Create View Designation_Wise_Salaries
+	as
+	Select Distinct DesignationName, Max(Salary) as Max_Sal, Min(Salary) as Min_Sal, Sum(Salary) as Total_Sal
+	From Person
+	Inner Join Designation
+	on Person.DesignationID = Designation.DesignationID
+	Group by DesignationName
+
+	Select * From Designation_Wise_Salaries
+
+
+
 --3. Create a view that displays Worker’s first name with their salaries & joining date, it also displays duration column which is difference of joining date with respect to current date.
+
+	Create View WorkerInfo
+	as
+	Select FirstName, Salary, JoiningDate, DateDiff(year, JoiningDate, getDate()) as Duration
+	From Person
+
+	Select * From WorkerInfo
+
+
+
 --4. Create a view which shows department & designation wise total number of workers.
+
+	Create View NumberOfWorker
+	as
+	Select Department.DepartmentName, Designation.DesignationName, Count(*) as Num_of_Worker
+	From Person
+	Left Outer Join Department
+	on Person.DepartmentID = Department.DepartmentID
+	Left Outer Join Designation
+	on Person.DesignationID = Designation.DesignationID
+	Group by Department.DepartmentName, Designation.DesignationName
+
+	Select * From NumberOfWorker
+
+
+
 --5. Create a view that displays worker names who don’t have either in any department or designation.
+
+	Create View No_departmentORdesignation
+	as
+	Select FirstName, LastName
+	From Person
+	Where DepartmentID is Null 
+	OR DesignationID is Null
+
+	Select * From No_departmentORdesignation
