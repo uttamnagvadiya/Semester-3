@@ -1,36 +1,98 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Title</title>
+    <style>
+        .btn{
+            width: 15%;
+            font-size: 20px;
+        }
+        #miliSeconds, #seconds, #minutes{
+            width: 5%;
+            margin: 10px;
+            font-size: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        body{
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
-	<input type="button" name="" value="Start" onclick="startTimer()">
-	<input type="button" name="" value="Stop" onclick="stopTimer()">
-	<input type="button" name="" value="Reset" onclick="resetTimer()">
-	<h1 id="counter"></h1>
 
-	<script type="text/javascript">
-		var x=0;
-		var c;
-		function startTimer(){
-			c = setInterval(printTimer);
-		}
-		function printTimer(){
-			
-			x++;
-			var temp = document.getElementById("counter");
-			temp.innerHTML = x/100;
-		}
-		function resetTimer(){
-			stopTimer();
-			x=0;
-			var temp = document.getElementById("counter");
-			temp.innerHTML = "0";
-		}
-		function stopTimer(){
-			clearInterval(c);
-		}
-	</script>
+    <img src="" alt="" id="img">    
+    <div class="container" id="content">
+        
+        <div class="heading text-center text-dark h1 p-3">StopWatch</div>  
+        
+        <div class="buttons text-center p-2">
+            <div class="timeLmt p-3">
+                <input type="text" placeholder="Enter Seconds" id="timeLimit">
+            </div>
+            <button type="button" id="startBtn" class="btn btn-primary m-3" onclick="timer()">Start</button>
+            <button type="button" id="resetBtn" class="btn btn-danger m-3" onclick="resetTime()">Reset</button>
+        </div>
+
+        <div class="txt text-center p-5">
+            <input type="text" value="00" id="minutes" class="bg-dark text-light" disabled>
+            <span class="h3"> : </span>
+            <input type="text" value="00" id="seconds" class="bg-dark text-light" disabled>
+            <span class="h3"> : </span>
+            <input type="text" value="00" id="miliSeconds" class="bg-dark text-light" disabled>
+        </div>
+    </div>
+    
+    <script>
+        
+        function timer(){
+            var uu = document.getElementById('startBtn');
+
+            if(uu.innerHTML == 'Start' || uu.innerHTML == 'Resume'){
+                document.getElementById('startBtn').innerHTML = 'Pause';
+                c = setInterval(startTime, 10);
+            }
+            else{
+                clearInterval(c);
+                document.getElementById('startBtn').innerHTML = 'Resume';
+            }
+        }
+
+        function startTime(){
+            var lmtTime = document.getElementById('timeLimit').value;
+            if (document.getElementById('seconds').value == lmtTime){
+                document.getElementById('content').innerHTML = "";
+                document.getElementById('img').src = 'times_up.jpg'
+                document.getElementById('img').style.display = "block";        //Image
+            }
+            else{
+                if (document.getElementById('miliSeconds').value == 99){
+                    document.getElementById('miliSeconds').value = 00;
+
+                    if (document.getElementById('seconds').value == 59){
+                        document.getElementById('minutes').value++;
+                        document.getElementById('seconds').value = 00;
+                    }
+                    else{
+                        document.getElementById('seconds').value++;
+                    }
+                }
+                else{
+                    document.getElementById('miliSeconds').value++;
+                }
+            }
+        }
+
+        function resetTime(){
+            clearInterval(c);
+            document.getElementById('startBtn').innerHTML = 'Start';
+            document.getElementById('miliSeconds').value = '00';
+            document.getElementById('seconds').value = '00';
+            document.getElementById('minutes').value = '00';
+        }
+    </script>
 </body>
 </html>
