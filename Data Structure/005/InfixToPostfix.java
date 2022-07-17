@@ -1,89 +1,109 @@
-import java.util.Scanner;
-public  class  InfixToPostfix{
-    static InfixToPostfix obj=new InfixToPostfix();
-    public static void main(String[] args) {
-        
-        Scanner sc=new Scanner(System.in);
-        String infix;
-        System.out.println("Enter the infix expression you want to convert: ");  
-        infix =sc.nextLine();
-        System.out.println("Postfix expression for the given infix expression is:" + obj.toPostfix(infix));
+import java.util.*;
+public class InfixToPostfix{
+
+    static InfixToPostfix itp = new InfixToPostfix();
+
+    static int top = -1;
+    char [] operators = new char[100];
+
+
+    public String toPostfix(String infix){
+        char symbol;
+        String postfix = "";
+
+        for(int i=0; i<infix.length(); i++){
+            symbol = infix.charAt(i);
+
+            if (Character.isLetter(symbol)){
+                postfix += symbol;
+            }
+            else if (symbol == '('){
+                itp.push(symbol);
+            }
+            else if ( symbol == ')' ){
+                while(itp.peek() != '('){
+                    postfix += pop();
+                }
+                itp.pop();
+            }
+            else{
+                while (top != -1 && !( itp.peek() == '(' ) && precedence(symbol) <= precedence(itp.peek()) ){
+                    postfix += itp.pop();
+                } 
+                itp.push(symbol);
+            }
+        }
+
+        while (top != -1) {
+            postfix += itp.pop();
+        }
+        return postfix;
     }
-    static int top=-1;
-    char[] ch= new char[100];
-    
-    public void push(char c)
-    {
-        if(top>=100){
-            System.out.println("Overflow");
+
+
+    // Pushing Operators in Stack.
+    public void push(char pushSymbol){
+        if (top >= 100){
+            System.out.println("Stack Overflow...");
         }
         else{
             top++;
-            ch[top]=c;
+            operators[top] = pushSymbol;
         }
     }
+
+
+    // Peek the Operators for checking precedence of Operators.
     public char peek(){
-        if (top<=-1) {
-            System.out.println("UnderFlow");
+        if (top <= -1){
+            System.out.println("Stack Underflow...");
             return 0;
         }
         else{
-            return ch[top];
+            return operators[top];
         }
-
     }
+
+
+    // Pop the Opearators in Stack.
     public char pop(){
-		if(top==-1){
-			System.out.println("Underflow");
-			return 0;
-		}
-		return ch[top--];
-	}
-    public  String toPostfix(String infix)  
-    {  
-        char symbol;  
-        String postfix = "";  
+        if (top <= -1){
+            System.out.println("Stack Underflow...");
+            return 0;
+        }
+        return operators[top--];
+    }
 
-        for(int i=0;i<infix.length();++i)  
-        {  
-            symbol = infix.charAt(i);  
 
-            if (Character.isLetter(symbol)) 
-                postfix = postfix + symbol;  
-            else if (symbol=='(')  
-            {  
-                obj.push(symbol);  
-            }  
-            else if (symbol==')'){  
-                    while (obj.peek() != '('){  
-                        postfix = postfix + pop();  
-                    }  
-                    obj.pop();
-            }  
-            else{  
-                    while (top!=-1 && !(obj.peek()=='(') && precedenc(symbol) <= precedenc(obj.peek()))  
-                        postfix = postfix + obj.pop();  
-                        obj.push(symbol);  
-                }  
-        } 
-
-        while (top!=-1)
-            postfix = postfix + obj.pop();  
-        return postfix;  
-    }  
-    public int precedenc(char chr){
-        switch (chr) {
+    // Check Precedence of Operators.
+    public int precedence(char op){
+        switch (op) {
             case '+':
             case '-':
                 return 1;
+
             case '*':
             case '/':
             case '%':
-                return 2; 
+                return 2;
+
             case '^':
                 return 3;
+        
+            default:
+                break;
         }
-        return chr;
+
+        return op;
     }
 
+
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the Expression : ");
+        String infix = sc.next();
+        System.out.println("Postfix Expression for the given Infix Expression is : "+itp.toPostfix(infix));
+    }
 }

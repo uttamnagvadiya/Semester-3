@@ -23,6 +23,8 @@ function main(ctime){
     createGame();
 }
 
+
+
 function isCollide(sg){
     for (let i = 1; i < snakeArray.length; i++) {
         if (sg[i].x === sg[0].x && sg[i].y === sg[0].y){
@@ -35,6 +37,8 @@ function isCollide(sg){
     }
     return false;
 }
+
+
 
 
 
@@ -55,7 +59,6 @@ function createGame(){
         speed = 5;
     }
 
-
     //if snake have eaten the food, increment the score & regenerate the food.
     if (snakeArray[0].y === food.y && snakeArray[0].x === food.x){
         foodSound.play();
@@ -75,10 +78,6 @@ function createGame(){
         let b = 29;
         food = {x: Math.round(a+(b-a)*Math.random()), y: Math.round(a+(b-a)*Math.random())};
     }
-
-
-    
-   
 
 
 
@@ -114,6 +113,9 @@ function createGame(){
     board.appendChild(foodElement);
 }
 
+
+
+
 let hiScore = localStorage.getItem("hiScore");
 if(hiScore === null){
     highScore = 0;
@@ -123,6 +125,9 @@ else{
     highScore = JSON.parse(hiScore);
     highScoreBox.innerHTML = "High Score : "+hiScore;
 }
+
+
+
 
 
 // Main Logic Start Here

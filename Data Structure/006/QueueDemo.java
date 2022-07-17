@@ -1,5 +1,3 @@
-package Queue;
-
 import java.util.*;
 
 public class QueueDemo {
@@ -24,6 +22,9 @@ public class QueueDemo {
             front++;
             return que[front-1];
         }
+        // for (int i=0; i<que.length; i++){
+        //     que[i] = que[i+1];
+        // }
         return front;
     }
 
@@ -56,6 +57,7 @@ public class QueueDemo {
             que[cngeIndex] = cngeValue;
         }
     }
+
     public void displayQue(){
         System.out.print("Stack : [");
         for(int i=front; i<rear; i++){
@@ -71,28 +73,29 @@ public class QueueDemo {
         
 
         while(true){
+            System.out.println(" 1 => ENQUE \n 2 => DEQUE \n 3 => PEEK \n 4 => PEEP \n 5 => CHANGE \n 6 => DISPLAY \n 7 => EXIT");
             System.out.print("Enter Option you want to perform : ");
             switch(sc.next()){
-                case "EnQue" :
+                case "1" :
                     System.out.print("Enter the Elements in Queue : ");
                     qu.enQue(sc.nextInt()); 
                     break;
     
-                case "DeQue" : 
+                case "2" : 
                     System.out.println(qu.deQue());
                     break;
 
-                    case "Peek" : 
+                    case "3" : 
                     System.out.println(qu.peekQue());
                     break;
     
-                case "Peep" :
+                case "4" :
                     System.out.print("Enter Index : ");
                     int index = sc.nextInt();
                     System.out.println(qu.peepQue(index));
                     break;
     
-                case "Change" :
+                case "5" :
                     System.out.print("Enter Index :");
                     int cngeIndex = sc.nextInt();
                     System.out.print("Enter Value : ");
@@ -100,11 +103,11 @@ public class QueueDemo {
                     qu.change(cngeIndex, cngeValue);
                     break;
     
-                case "Display" :
+                case "6" :
                     qu.displayQue();
                     break;
     
-                case "Exit" :
+                case "7" :
                     System.exit(0);
                     break;
             }
