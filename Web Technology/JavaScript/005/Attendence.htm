@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container1, #container2, #container3{
+            border: 5px solid black;
+            width: 29%;
+            height: 70vh;
+            margin: 40px 30px auto auto;
+            float: right;
+        }
+        #main{
+            width: 75%;
+            margin: 0px 250px;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    
+    <button id="chkAll" onclick="checkAll()">SelectAll</button>
+    <button id="unchkAll" onclick="uncheckAll()">DiselectAll</button><br>
+
+   <div id="main">
+    <div id="container1"> </div>
+    <div id="container2"> </div>
+    <div id="container3"> </div>
+   </div>
+
+    <script>
+        function createElement(start, end){
+            for(i=start; i<end; i++){
+                    document.write("<input type='checkbox' onclick='check()' value="+i+">");
+                    document.write(i+'<br>');
+
+            }
+        }
+
+        createElement(101, 164);
+        createElement(201, 286);
+        createElement(301, 364);
+
+        function checkAll(){  
+            ck = document.getElementsByTagName('input');
+            
+            for(i=0; i<ck.length; i++){
+                ck[i].checked = true;
+            }
+            divi = document.getElementById('container').innerHTML="";
+        }
+        function uncheckAll(){
+            ck = document.getElementsByTagName('input');
+            for(i=0; i<ck.length; i++){
+                ck[i].checked = false;
+            }
+            check();
+        }
+
+        function check(){
+            divi = document.getElementById('container3');
+            unck = document.getElementsByTagName('input');
+            divi.innerHTML="";
+            for (i=0; i<unck.length-2; i++){
+                if(unck[i].checked == false){
+                    divi.innerHTML += unck[i].value+", "
+                }
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>
