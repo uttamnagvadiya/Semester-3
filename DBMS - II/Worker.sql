@@ -13,11 +13,11 @@ Create Table Department(
 
 
 Create Table Person(
-	WorkerID		int				Primary Key Identity(101, 1),
-	FirstName		varchar(100)	Not Null,
-	LastName		varchar(100)	Not Null,
-	Salary			decimal(8, 2)	Not Null,
-	JoiningDate		datetime	Not Null,
+	WorkerID			int				Primary Key Identity(101, 1),
+	FirstName			varchar(100)	Not Null,
+	LastName			varchar(100)	Not Null,
+	Salary				decimal(8, 2)	Not Null,
+	JoiningDate			datetime		Not Null,
 	DepartmentID		int				Foreign Key References Department(DepartmentID),
 	DesignationID		int				Foreign Key	References Designation(DesignationID)
 )
@@ -409,9 +409,10 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 
 
---5. Create a scalar valued function which accepts two parameters year in integer & month in integer and returns first date in passed month & year.
+--5. Create a scalar valued function which accepts two parameters year in integer & month in integer and
+--	 returns first date in passed month & year.
 
-	alter Function FN_FirstDate(
+	Create Function FN_FirstDate(
 		@month	int,
 		@year	int 
 	)	
@@ -425,7 +426,9 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 
 	Select dbo.FN_FirstDate(9, 2025)
 
-	-- Select DATEADD(year, DATEDIFF(year, 0, GETDATE()), 0) AS StartOfYear
+	--select dateadd(month, datediff(month, 0, getDate()), 0) as StartOfMonth
+	--Select DATEADD(year, DATEDIFF(year, 0, GETDATE()), 0) AS StartOfYear
+
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -440,7 +443,6 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 	From Person
 
 	Select * From WorkerDetails
-
 
 
 --2. Create a view that displays designation wise maximum, minimum & total salaries.

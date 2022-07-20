@@ -1,4 +1,4 @@
-public class secondLargetstInArray {
+public class secondLargestInArray {
 
     public static void main(String[] args) {
         int demo [] = {65,321,654,3,8,51,356};
@@ -17,3 +17,4 @@ public class secondLargetstInArray {
         System.out.println("Second Largest Element in Array : "+secondMax);
     }
 }
+

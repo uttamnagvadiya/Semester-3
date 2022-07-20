@@ -41,7 +41,7 @@ public class Stack {
             return 0;
         }
         else{
-            return stack[top-index+1];
+            return stack[index];
         }
         
     }
@@ -56,7 +56,7 @@ public class Stack {
     }
     public void displayStack(){
         System.out.print("Stack : [");
-        for(int i=0; i<stack.length; i++){
+        for(int i=0; i<top+1; i++){
             System.out.print(stack[i]+", ");
         }
         System.out.println("]");
@@ -71,26 +71,26 @@ public class Stack {
         while(true){
             System.out.print("Enter Option you want to perform : ");
             switch(sc.next()){
-                case "Push" :
+                case "1" :
                     System.out.print("Enter the Elements in Stack : ");
                     st.push(sc.nextInt()); 
                     break;
     
-                case "Pop" : 
+                case "2" : 
                     System.out.println(st.pop());
                     break;
 
-                case "Peek" : 
+                case "3" : 
                     System.out.println(st.peek());
                     break;
     
-                case "Peep" :
+                case "4" :
                     System.out.print("Enter Index : ");
                     int index = sc.nextInt();
                     System.out.println(st.peep(index));
                     break;
     
-                case "Change" :
+                case "5" :
                     System.out.print("Enter Index :");
                     int cngeIndex = sc.nextInt();
                     System.out.print("Enter Value : ");
@@ -98,11 +98,11 @@ public class Stack {
                     st.change(cngeIndex, cngeValue);
                     break;
     
-                case "Display" :
+                case "6" :
                     st.displayStack();
                     break;
     
-                case "Exit" :
+                case "7" :
                     System.exit(0);
                     break;
             }
