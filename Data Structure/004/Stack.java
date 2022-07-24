@@ -47,11 +47,12 @@ public class Stack {
     }
 
     public void change(int cngeIndex, int cngeValue){
-        if (cngeIndex <= -1 || cngeIndex >= 8){
-            System.out.println("Invalid Enter the Index : ");
+        if (cngeIndex <= -1 || cngeIndex >= 10 || top <= -1){
+            System.out.println(" Entered the Index is Invalid... ");
         }
         else{
             stack[cngeIndex] = cngeValue;
+            System.out.println("-->> Vlaue Changed Successfully... ");
         }
     }
     public void displayStack(){

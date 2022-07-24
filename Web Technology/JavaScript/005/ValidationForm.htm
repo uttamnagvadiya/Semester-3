@@ -22,6 +22,10 @@
         .print{
             border: 2px solid rgb(189, 182, 182);
         }
+        #msg{
+            text-align: center;
+            padding-top: 250px;
+        }
 
     </style>
   </head>
@@ -46,13 +50,13 @@
                     <div class="mb-3 row">
                         <label for="inputPassword" class="col-xs-4 col-form-label">Password</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control " id="inputName" placeholder="Password">
+                            <input type="password" class="form-control " id="inputPassword" placeholder="Password">
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputPassword" class="col-xs-4 col-form-label">Repassword</label>
+                        <label for="inputRepassword" class="col-xs-4 col-form-label">Repassword</label>
                         <div class="col-xs-8">
-                            <input type="text" class="form-control " id="inputRepassword" placeholder="Confirm Password">
+                            <input type="password" class="form-control " id="inputRepassword" placeholder="Confirm Password">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -76,7 +80,7 @@
                     </form>
                 </div>
                 <div class="col-lg-6 print my-5" id="msg">
-                    <h2 id="message"></h2>
+                    <h3 id="message"></h3>
                 </div>
 
             </div>
@@ -91,20 +95,37 @@
             
             function validation(){
                 var emailID = document.getElementById("inputEmailID").value;
-                var repassword = document.getElementById("inputRepassword").value;
+                var password = document.getElementById("inputPassword");
+                var repassword = document.getElementById("inputRepassword");
                 var mobileNo = document.getElementById("inputMobileNo").value;
+
                 var patternForEmail = /^\w+([\.-]?\w+)*@gmail.com$/;
-                var regex = new RegExp(patternForEmail);
+                var patternForMobileNo = /^\d{10}$/;
+
                 var print = document.getElementById("msg");
                 var printMsg = document.getElementById("message");
 
-                if (regex.test(emailID)){
-                    print.style.border = "2px solid green";
-                    printMsg.innerHTML = "Done";
+
+
+                if (patternForEmail.test(emailID)){
+                    if (password.value === repassword.value) {
+                        if (patternForMobileNo.test(mobileNo)) {
+                            print.style.border = "2px solid green";
+                            printMsg.innerHTML = "You are Login Successfully...";
+                        }
+                        else {
+                            print.style.border = "2px solid red";
+                            printMsg.innerHTML = "Please! Enter the Proper Mobile Number.";
+                        }
+                    }
+                    else{
+                        print.style.border = "2px solid red";
+                        printMsg.innerHTML = "Please! Enter the Proper Password OR Confirm Password.";
+                    }
                 }
                 else{
                     print.style.border = "2px solid red";
-                    printMsg.innerHTML = "Error";
+                    printMsg.innerHTML = "Please! Enter the Proper Email ID.";
                 }
             }
 
