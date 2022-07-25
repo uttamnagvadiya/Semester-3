@@ -1,7 +1,85 @@
 import java.util.*;
-public class InfixToPostfix{
 
-    static InfixToPostfix itp = new InfixToPostfix();
+//  Evalute Expression.
+class EvalutionOfExpression {
+    static EvalutionOfExpression epe = new EvalutionOfExpression();             // reference epe means => evalution of postfix expression.
+    int top = -1;
+    double [] evaluteStack = new double[15];
+
+    public double evalutePostfixExp (String resultExp) {
+
+        char symbol;
+
+        for (int i=0; i<resultExp.length(); i++) {
+            symbol = resultExp.charAt(i);
+
+            if (Character.isDigit(symbol)) {
+                epe.digitPush(symbol-'0');
+            }
+            else {
+                double oprand_1 = epe.digitPop();
+                double oprand_2 = epe.digitPop();
+
+                switch (symbol) {
+                    case '+':
+                        epe.digitPush(oprand_2+oprand_1);
+                        break;
+
+                    case '-':
+                        epe.digitPush(oprand_2-oprand_1);
+                        break;
+
+                    case '*':
+                        epe.digitPush(oprand_2*oprand_1);
+                        break;
+
+                    case '/':
+                        epe.digitPush(oprand_2/oprand_1);                        
+                        break;
+
+                    case '%':
+                        epe.digitPush(oprand_2%oprand_1);
+                        break;
+
+                    case '^':
+                        epe.digitPush(Math.pow(oprand_2, oprand_1));
+                        break;
+                
+                    default:
+                        break;
+                }
+            }
+        }
+        return epe.digitPop();
+    }
+
+
+    public void digitPush(double digit) {
+        if (top >= 15){
+            System.out.println("Stack Overflow...");
+        }
+        else{
+            top++;
+            evaluteStack[top] = digit;
+        }
+    }
+
+    public double digitPop() {
+        if (top <= -1){
+            System.out.println("Stack Underflow...");
+            return 0;
+        }
+        return evaluteStack[top--];
+    }
+
+}
+
+
+
+//  Convert Infix to Postfix.
+public class EvalutionOfPostfixExp{
+
+    static InfixToPostfix itp = new InfixToPostfix();                   // reference itp means => infix to postfix.
 
     static int top = -1;
     char [] operators = new char[100];
@@ -98,18 +176,14 @@ public class InfixToPostfix{
     }
 
 
-
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        EvalutionOfExpression epe = new EvalutionOfExpression();
         System.out.print("Enter the Expression : ");
         String infix = sc.next();
         String output = itp.toPostfix(infix);
         System.out.println("Postfix Expression for the given Infix Expression is : "+output);
-    }
-
-
-    public String evalutePostfixExp(String output) {
-        return null;
+        System.out.println("Answer of Postfix Expression : " + epe.evalutePostfixExp(output));
     }
 }
+
