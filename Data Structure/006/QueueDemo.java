@@ -44,7 +44,7 @@ public class QueueDemo {
             return 0;
         }
         else{
-            return que[index];
+            return que[index+1];
         }
         
     }
