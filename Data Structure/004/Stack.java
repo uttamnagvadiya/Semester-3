@@ -68,7 +68,7 @@ public class Stack {
 
         Scanner sc = new Scanner(System.in);
         
-
+        System.out.println(" Operations are : \n 1 --> Push Element\n 2 --> Pop Element\n 3 --> Peek Element\n 4 --> Peep Element\n 5 --> Change Element\n 6 --> Display Elements\n 7 --> Exit");
         while(true){
             System.out.print("Enter Option you want to perform : ");
             switch(sc.next()){

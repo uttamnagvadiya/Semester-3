@@ -1,13 +1,15 @@
 import java.util.*;
-public class InfixToPostfix{
+public class InfixToPrefix{
 
-    static InfixToPostfix itp = new InfixToPostfix();
+    static InfixToPrefix itp = new InfixToPrefix();
 
     static int top = -1;
     char [] operators = new char[100];
 
 
     public String toPostfix(String infix){
+        
+
         char symbol;
         String postfix = "";
 
@@ -17,17 +19,17 @@ public class InfixToPostfix{
             if (Character.isLetter(symbol)){
                 postfix += symbol;
             }
-            else if (symbol == '('){
+            else if (symbol == ')'){
                 itp.push(symbol);
             }
-            else if ( symbol == ')' ){
-                while(itp.peek() != '('){
+            else if ( symbol == '(' ){
+                while(itp.peek() != ')'){
                     postfix += itp.pop();
                 }
                 itp.pop();
             }
             else{
-                while (top != -1 && !( itp.peek() == '(' ) && precedence(symbol) <= precedence(itp.peek()) ){
+                while (top != -1 && !( itp.peek() == ')' ) && precedence(symbol) <= precedence(itp.peek()) ){
                     postfix += itp.pop();
                 } 
                 itp.push(symbol);
@@ -56,7 +58,7 @@ public class InfixToPostfix{
     // Peek the Operators for checking precedence of Operators.
     public char peek(){
         if (top <= -1){
-            System.out.println("Stack Underflow...");
+            System.out.println("Stack Underflow1...");
             return 0;
         }
         else{
@@ -68,7 +70,7 @@ public class InfixToPostfix{
     // Pop the Opearators in Stack.
     public char pop(){
         if (top <= -1){
-            System.out.println("Stack Underflow...");
+            System.out.println("Stack Underflow2...");
             return 0;
         }
         return operators[top--];
@@ -93,15 +95,30 @@ public class InfixToPostfix{
             default:
                 break;
         }
-
         return op;
     }
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
+
         System.out.print("Enter the Expression : ");
         String infix = sc.next();
-        String output = itp.toPostfix(infix);
-        System.out.println("Postfix Expression for the given Infix Expression is : "+output);
+
+        // Reverse the Entered Infix Expression
+        String reverseString = "";
+        for (int i=infix.length()-1; i>=0; i--) {
+            reverseString += infix.charAt(i);
+        }
+        
+        // Convert Reversed Infix Expression to Postfix Expression
+        String output = itp.toPostfix(reverseString);
+
+        // Reverse the Postfix Expression to Convert in Prefix Expression
+        String resultReverseString = "";
+        for (int i=output.length()-1; i>=0; i--) {
+            resultReverseString += output.charAt(i);
+        }
+        System.out.println("Prefix Expression for the given Infix Expression is : "+resultReverseString);
     }
 }

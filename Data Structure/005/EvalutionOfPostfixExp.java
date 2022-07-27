@@ -79,7 +79,7 @@ class EvalutionOfExpression {
 //  Convert Infix to Postfix.
 public class EvalutionOfPostfixExp{
 
-    static InfixToPostfix itp = new InfixToPostfix();                   // reference itp means => infix to postfix.
+    static EvalutionOfPostfixExp itp = new EvalutionOfPostfixExp();     // reference itp means => infix to postfix
 
     static int top = -1;
     char [] operators = new char[100];
@@ -174,7 +174,6 @@ public class EvalutionOfPostfixExp{
 
         return op;
     }
-
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
