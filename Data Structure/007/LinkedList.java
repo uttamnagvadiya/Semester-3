@@ -30,6 +30,31 @@ class List{
 
     // }
 
+    void sortLinkedList(Node head) {
+        Node current = head;
+        Node index = null;
+        int temp;
+
+        if (head == null) {
+            return;
+        } else {
+            while (current != null) {
+
+                index = current.nextAddress;
+
+                while (index != null) {
+                    if (current.value > index.value) {
+                        temp = current.value;
+                        current.value = index.value;
+                        index.value = temp;
+                    }
+                    index = index.nextAddress;
+                }
+                current = current.nextAddress;
+            }
+        }
+    }
+
     public void displayList(){
         Node temp = head;
         while(temp != null){
@@ -60,6 +85,10 @@ public class LinkedList{
 
                 case 3: 
                     obj.displayList();
+                    break;
+
+                case 4:
+                    obj.sortLinkedList(obj.head);
                     break;
                 
                 default:
