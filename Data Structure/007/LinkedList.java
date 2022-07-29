@@ -30,29 +30,23 @@ class List{
 
     // }
 
-    void sortLinkedList(Node head) {
-        Node current = head;
-        Node index = null;
-        int temp;
+    public void sortLinkedList(Node head) {
+        Node temp = head;
+        int result = 0;
+        while(temp != null){
+            Node newTemp = temp.nextAddress;
+            while(newTemp != null){
+                if (temp.value > newTemp.value){
 
-        if (head == null) {
-            return;
-        } else {
-            while (current != null) {
-
-                index = current.nextAddress;
-
-                while (index != null) {
-                    if (current.value > index.value) {
-                        temp = current.value;
-                        current.value = index.value;
-                        index.value = temp;
-                    }
-                    index = index.nextAddress;
+                    result = temp.value;
+                    temp.value = newTemp.value;
+                    newTemp.value = result;
                 }
-                current = current.nextAddress;
+                newTemp = newTemp.nextAddress;
             }
+            temp = temp.nextAddress;
         }
+        System.out.println("List Sorted Successfully...");
     }
 
     public void displayList(){
