@@ -22,23 +22,23 @@ class EvalutionOfExpression {
 
                 switch (symbol) {
                     case '+':
-                        epe.digitPush(oprand_2+oprand_1);
+                        epe.digitPush(oprand_2 + oprand_1);
                         break;
 
                     case '-':
-                        epe.digitPush(oprand_2-oprand_1);
+                        epe.digitPush(oprand_2 - oprand_1);
                         break;
 
                     case '*':
-                        epe.digitPush(oprand_2*oprand_1);
+                        epe.digitPush(oprand_2 * oprand_1);
                         break;
 
                     case '/':
-                        epe.digitPush(oprand_2/oprand_1);                        
+                        epe.digitPush(oprand_2 / oprand_1);                        
                         break;
 
                     case '%':
-                        epe.digitPush(oprand_2%oprand_1);
+                        epe.digitPush(oprand_2 % oprand_1);
                         break;
 
                     case '^':

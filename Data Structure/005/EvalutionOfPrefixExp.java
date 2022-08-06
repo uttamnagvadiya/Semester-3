@@ -11,14 +11,14 @@ class EvalutionOfPrefixExp {
 			return false;
 	}
 
-	static double evaluatePrefix(String exprsn)
+	static double evaluatePrefix(String exp)
 	{
 		Stack <Double> Stack = new Stack <Double> ();
 
-		for (int j = exprsn.length() - 1; j >= 0; j--) {
+		for (int j = exp.length() - 1; j >= 0; j--) {
 
-			if (isOperand(exprsn.charAt(j)))
-				Stack.push((double)(exprsn.charAt(j) - '0'));
+			if (isOperand(exp.charAt(j)))
+				Stack.push((double)(exp.charAt(j) - '0'));
 
 			else {
 				double oprand_1 = Stack.peek();
@@ -27,7 +27,7 @@ class EvalutionOfPrefixExp {
 				Stack.pop();
 
 			
-				switch (exprsn.charAt(j)) {
+				switch (exp.charAt(j)) {
 				case '+':
 					Stack.push(oprand_1 + oprand_2);
 					break;
