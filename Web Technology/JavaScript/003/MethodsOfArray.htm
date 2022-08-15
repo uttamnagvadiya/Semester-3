@@ -2,21 +2,50 @@
     <head></head>
     <body>
         <script>
+            // First Array
             var demo = ["Karan","Kishan","Devanshu","Mubin","Divyank"];
 
+            // Length of Array.
+            document.write("Length of Array : "+demo.length+"<br>");
+
+            // Sorting Array in Asscending Order.
             document.write("Sorted Array : "+ demo.sort()+"<br>");
-            document.write("Conerted in String : "+demo.toString()+"<br>");
+
+            // Onverts an Array to a String.
+            document.write("Converted in String : "+demo.toString()+"<br>");
+
+            // Join all elements into a String.
             document.write("Join All Elements : "+demo.join(" * ")+"<br>");
+
+            // Remove the Last Element from an Array.
             document.write("Poping Element : "+demo.pop()+"<br>");
+
+            // Adds a New Element to an Array (at the end).
             document.write("Pushing Element : "+demo.push("Uttam")+"<br>");
+
+            // Remove the First Element from an Array.
             document.write("Shift Element : "+demo.shift()+"<br>");
+
+            // Adds a New Element to an Array (at the beginning).
             document.write("Unshift Element : "+demo.unshift("Kalia")+"<br>");
              
+            // Second Array
             var demo2 = ["Doraemon", "Nobita", "Sizuka"];
+
+            // Concate the Two Array.
             var demo3 = demo.concat(demo2);
             document.write("Merging Two Array : "+demo3+"<br>");
-            demo3.splice(1, 0, "Bheem", "Jaggu");
+
+            /*
+            In the splice method, 
+            -> first parameter (3) defines the position where new element should be added.
+            -> second parameter (0) defines how many elements should be removed.
+               then, ("Bheem", "Jaggu") define the new elements to be added.
+            */
+            demo3.splice(3, 0, "Bheem", "Jaggu")
             document.write("Splice Elements : "+demo3+"<br>");
+
+            // Out a Piece of an Array into a new Array.
             document.write("Slice Elements : "+demo3.slice(2, 7)+"<br>");
 
         </script>
