@@ -8,46 +8,114 @@
             // Length of Array.
             document.write("Length of Array : "+demo.length+"<br>");
 
-            // Sorting Array in Asscending Order.
+            // sort() -->> Sorting Array in Asscending Order.
             document.write("Sorted Array : "+ demo.sort()+"<br>");
 
-            // Onverts an Array to a String.
+            // toString() -->> Converts an Array to a String.
             document.write("Converted in String : "+demo.toString()+"<br>");
 
-            // Join all elements into a String.
+            // join() -->> Join all elements into a String.
             document.write("Join All Elements : "+demo.join(" * ")+"<br>");
 
-            // Remove the Last Element from an Array.
+            // pop() -->> Remove the Last Element from an Array.
             document.write("Poping Element : "+demo.pop()+"<br>");
 
-            // Adds a New Element to an Array (at the end).
+            // push() -->> Adds a New Element to an Array (at the end).
             document.write("Pushing Element : "+demo.push("Uttam")+"<br>");
 
-            // Remove the First Element from an Array.
+            // shift() -->> Remove the First Element from an Array.
             document.write("Shift Element : "+demo.shift()+"<br>");
 
-            // Adds a New Element to an Array (at the beginning).
+            // unshift() -->> Adds a New Element to an Array (at the beginning).
             document.write("Unshift Element : "+demo.unshift("Kalia")+"<br>");
              
             // Second Array
             var demo2 = ["Doraemon", "Nobita", "Sizuka"];
 
-            // Concate the Two Array.
+            // concat() -->> Concate the Two Array.
             var demo3 = demo.concat(demo2);
             document.write("Merging Two Array : "+demo3+"<br>");
 
-            /*
-            In the splice method, 
-            -> first parameter (3) defines the position where new element should be added.
-            -> second parameter (0) defines how many elements should be removed.
-               then, ("Bheem", "Jaggu") define the new elements to be added.
+            /*splice() -->>
+                In the splice method, 
+                -> first parameter (3) defines the position where new element should be added.
+                -> second parameter (0) defines how many elements should be removed.
+                then, ("Bheem", "Jaggu") define the new elements to be added.
             */
             demo3.splice(3, 0, "Bheem", "Jaggu")
             document.write("Splice Elements : "+demo3+"<br>");
 
-            // Out a Piece of an Array into a new Array.
+            // slice() -->> Out a Piece of an Array into a new Array.
             document.write("Slice Elements : "+demo3.slice(2, 7)+"<br>");
 
+            // reverse()-->> Reverse the Array.
+            document.write("Reverse Array : "+demo3.reverse()+"<br>");
+
+
+            // Third Array of Numbers.
+            var numbers = [45, 65, 3, 87, 2, 5, 58, 86, 7, 12, 25];
+
+            // includes() -->> Check if an Element is Present in an Array.
+            console.log(numbers.includes(44));                  //return false
+
+
+            // filter() -->> Creates a new Array with array elements that passes a test.
+            document.write("Filtered Array : "+numbers.filter(filterArray)+"<br>");
+            function filterArray(value, index, array){
+                return value < 30;
+            }
+
+            // map() -->> Creates a new Array by Performing a Function on each Array Element.
+            document.write("Mapped Array : "+numbers.map(arrayMap)+"<br>");
+            function arrayMap(value, index, array){
+                return value*2;
+            }
+ 
+            // Other Example of map() method
+            students=[
+                {name:"uttam", spi:8.91},
+                {name:"kishan", spi:7.96},
+                {name:"karan", spi:7.43}
+            ];
+            let formatedStudent = students.map((s)=>{
+                return s.name;
+            })
+            console.log(formatedStudent);
+
+
+            // forEach() -->> this method calls a function once for each array element
+            students.forEach((s)=>{
+                console.log(s.name+" --> "+s.spi);
+            })
+
+
+            // every() -->> Check if all Array Values Pass a Test.
+            let result1 = students.every((s)=>{
+                if (s.spi > 5.00){
+                    return true;
+                }
+            })
+            console.log("Using every() method : "+result1);
+
+
+            // some() -->> Check if Some Array Values Pass a Test.
+            let result2 = students.some((s)=>{
+                if (s.spi < 5.50){
+                    return true;
+                }
+            })
+            console.log("Using some() method : "+result2);
+
+
+            // find() -->> retruns the value of passes the test.
+            let ans = students.find((s)=>{
+                if (s.name === "karan"){
+                    return true;
+                }
+            })
+            console.log(ans);
+
+            
         </script>
     </body>
 </html>
