@@ -1,18 +1,18 @@
 Create Table Person(
-	PersonID		int				Primary Key,
+	PersonID		int			Primary Key,
 	PersonName		varchar(50)		Not Null,
-	Salary			decimal(8,2)	Not Null,
+	Salary			decimal(8,2)		Not Null,
 	JoiningDate		datetime		Not Null,
 	City			varchar(50)		Not Null,
-	Age				int ,
+	Age			int ,
 	BirthDate		datetime		Not Null
 )
 
 
 Create Table PersonLog(
-	PersonLogID		int				Primary Key Identity(2101, 1),
-	PersonID		int				Not Null,
-	PersonName		varchar(250)	Not Null,
+	PersonLogID		int			Primary Key Identity(2101, 1),
+	PersonID		int			Not Null,
+	PersonName		varchar(250)		Not Null,
 	Operation		varchar(50)		Not Null,
 	UpdatedDate		datetime		Not Null
 )
@@ -27,7 +27,7 @@ Create Table PersonLog(
 		@personId		int, 
 		@personName		varchar(50),
 		@salary			decimal(8,2),
-		@joiningDate	datetime,
+		@joiningDate		datetime,
 		@city			varchar(50),
 		@age			int,
 		@birthDate		datetime
@@ -53,7 +53,7 @@ Create Table PersonLog(
 		@personId		int, 
 		@personName		varchar(50),
 		@salary			decimal(8,2),
-		@joiningDate	datetime,
+		@joiningDate		datetime,
 		@city			varchar(50),
 		@age			int,
 		@birthDate		datetime
@@ -64,9 +64,9 @@ Create Table PersonLog(
 			Set 
 				PersonName	=	@personName,
 				Salary		=	@salary	,
-				JoiningDate =	@joiningDate,
+				JoiningDate 	=	@joiningDate,
 				City		=	@city,
-				Age			=	@age,
+				Age		=	@age,
 				BirthDate	=	@birthDate	
 			Where
 				PersonID	=	@personId
@@ -192,7 +192,7 @@ Create Table PersonLog(
 
 		
 -- 4. Create DELETE trigger on PersonLog table, when we delete any record of PersonLog table it prints 
---    ‘Record deleted successfully from PersonLog’.
+--    â€˜Record deleted successfully from PersonLogâ€™.
 
 		Create Trigger TR_PersonLog_Delete
 		on PersonLog
