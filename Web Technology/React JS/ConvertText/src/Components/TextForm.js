@@ -34,13 +34,13 @@ export default function TextForm(){
             <div className="row border border-success justify-content-center my-5">
                 <span className='info h4 text-center'>Characters Counts with Spaces</span>
                 <div className="col-md-4 border border-primary bg-dark m-2">
-                <p className='h1 text-center text-warning'>Words : {words}</p>
+                <p className='h3 text-center text-warning'>Words : {words}</p>
                 </div>
                 <div className="col-md-4 border border-primary bg-dark m-2">
-                    <p className='h1 text-center text-warning'>Characters : {text.length}</p>
+                    <p className='h3 text-center text-warning'>Characters : {text.length}</p>
                 </div>
                 <div className="col-md-6 border border-primary bg-dark m-2">
-                    <p className='h1 text-center text-warning'>Read Duration : {words*0.008} Minutes</p>
+                    <p className='h3 text-center text-warning'>Read Duration : {words*0.008} Minutes</p>
                 </div>
             </div>
         </>

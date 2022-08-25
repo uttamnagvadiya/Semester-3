@@ -135,8 +135,8 @@ Insert into Person Values ('Neha', 'Trivedi', 18000, '2014-02-20', 3, 15)
 				LastName		=	@Lname,	
 				Salary			=	@salary,
 				JoiningDate		=	@joindate,
-				DepartmentID		=	@dpartID,
-				DesignationID		=	@designID			
+				DepartmentID	=	@dpartID,
+				DesignationID	=	@designID			
 								
 			Where
 				WorkerID	=	@workerID
