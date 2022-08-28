@@ -208,3 +208,19 @@ Create Table PersonLog(
 -- 5. Create INSERT trigger on person table, which calculates the age and update that age in Person 
 --    table.
 
+		Create Trigger TR_Person_CalculateAge
+		on Person
+		After Insert
+		as
+		Begin
+			Declare @birthDate date, @personId int
+			Select @personId = inserted.PersonID,
+					@birthDate = inserted.BirthDate
+			From Inserted
+
+			Update Person
+			Set 
+				Age = DateDiff(year, '2004-01-05', getDate())
+			Where
+				PersonID = @personId
+		End
