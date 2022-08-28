@@ -48,7 +48,7 @@ Create Table PersonLog(
 
 -------------------------------------------------
 
---		PR_Person_Update 101, 'Kishan', 20000, '2015-07-09', 'Baroda', 20, '2003-06-30'
+--		PR_Person_Update 105, 'Kishan', 20000, '2015-07-09', 'Baroda', 50, '2003-06-30'
 		Create Procedure PR_Person_Update
 		@personId		int, 
 		@personName		varchar(50),
@@ -137,7 +137,7 @@ Create Table PersonLog(
 		insert into Person values(105, 'Divyank', 45632, '2002-12-23', 'Junagadh', 19, '1999-11-09')
 		update Person set Salary = 30000 where PersonID = 102
 		delete from personlog where personlogid  = 2109
-		select * from PersonLog
+		select * from Person
 		
 
 
