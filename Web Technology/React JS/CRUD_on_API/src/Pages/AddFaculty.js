@@ -4,10 +4,23 @@ import { useNavigate, useParams } from "react-router-dom";
 function AddFaculty() {
     const params = useParams();
     const navigate = useNavigate();
-    const [faculty, setFaculty] = useState({});
+    const initialState = {
+        FacultyName:"",
+        FacultyDesignation:"",
+        FacultyQualification:"",
+        FacultyExperience:"",
+        FacultyWorkingSince:"",
+        FacultyMobileNumber:"",
+        FacultyEmail:"",
+        FacultySeating:"",
+        FacultyAreaSpecialization:"",
+        FacultySubjectsTaught:"",
+        FacultyImage:""
+    }
+    const [faculty, setFaculty] = useState(initialState);
 
     useEffect(()=>{
-        if (params.id > 0) {
+        if (params.id != null) {
             fetch("https://630c3f0f53a833c534263375.mockapi.io/FacultyProject/" + params.id,
             {
                 method : "GET"
@@ -16,7 +29,10 @@ function AddFaculty() {
             .then(res => res.json())
             .then(res => setFaculty(res));
         }
-    },[])
+        else{
+            setFaculty(initialState);
+        }
+    },[params]);
 
     return(
         <div className="container-sm add border border-primary rounded p-5">

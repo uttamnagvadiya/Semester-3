@@ -37,7 +37,7 @@ function Navbar() {
                         Faculty
                         <hr className="dropdown-divider" />
                     </Link>
-                    <Link to="/addFaculty" className="nav-link active me-4">
+                    <Link to="/faculty/add" className="nav-link active me-4">
                         Add Faculty
                         <hr className="dropdown-divider" />
                     </Link>
