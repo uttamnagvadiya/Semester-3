@@ -1,0 +1,58 @@
+[
+	{
+		AccountNo : 101,
+		CustomerName : "Anil",
+		BranchName : "VRCE",
+		Amount : 1000,
+		Date : "01-03-1995"
+	},
+	{
+		AccountNo : 102,
+		CustomerName : "Sunil",
+		BranchName : "AJNI",
+		Amount : 5000,
+		Date : "04-01-1996"
+	},
+	{
+		AccountNo : 103,
+		CustomerName : "Mehul",
+		BranchName : "KAROLBAGH",
+		Amount : 3500,
+		Date : "17-11-1995"
+	},
+	{
+		AccountNo : 104,
+		CustomerName : "Madhuri",
+		BranchName : "CHANDI",
+		Amount : 1200,
+		Date : "17-12-1995"
+	},
+	{
+		AccountNo : 105,
+		CustomerName : "Pramod",
+		BranchName : "M.G.ROAD",
+		Amount : 3000,
+		Date : "27-03-1996"
+	},
+	{
+		AccountNo : 106,
+		CustomerName : "Sandip",
+		BranchName : "ANDHERI",
+		Amount : 2000,
+		Date : "31-03-1996"
+	},
+	{
+		AccountNo : 107,
+		CustomerName : "Shivani",
+		BranchName : "VIRAR",
+		Amount : 1000,
+		Date : "05-09-1995"
+	},
+	{
+		AccountNo : 108,
+		CustomerName : "Kranti",
+		BranchName : "NEHRU PLACE",
+		Amount : 5000,
+		Date : "02-07-1995"
+	},
+]
