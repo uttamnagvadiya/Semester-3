@@ -1,0 +1,80 @@
+[
+	{
+		EmpID : 1,
+		EmployeeName : "Nick",
+		Gender : "Male",
+		JoiningDate : "01-Jan-13",
+		Salary : 4000,
+		City : "London"
+	},
+	{
+		EmpID : 2,
+		EmployeeName : "Julian",
+		Gender : "Female",
+		JoiningDate : "01-Oct-14",
+		Salary : 3000,
+		City : "New York"
+	},
+	{
+		EmpID : 3,
+		EmployeeName : "Roy",
+		Gender : "Male",
+		JoiningDate : "01-Jun-16",
+		Salary : 3500,
+		City : "London"
+	},
+	{
+		EmpID : 4,
+		EmployeeName : "Tom",
+		Gender : "Male",
+		Salary : 4500,
+		City : "London"
+	},
+	{
+		EmpID : 5,
+		EmployeeName : "Jerry",
+		Gender : "Male",
+		JoiningDate : "01-Feb-13",
+		Salary : 2800,
+		City : "Sydney"
+	},
+	{
+		EmpID : 6,
+		EmployeeName : "Philip",
+		Gender : "Male",
+		JoiningDate : "01-Jan-15",
+		Salary : 7000,
+		City : "New York"
+	},
+	{
+		EmpID : 7,
+		EmployeeName : "Sara",
+		Gender : "Female",
+		JoiningDate : "01-Aug-17",
+		Salary : 4800,
+		City : "Sydney"
+	},
+	{
+		EmpID : 8,
+		EmployeeName : "Emily",
+		Gender : "Female",
+		JoiningDate : "01-Jan-15",
+		Salary : 5500,
+		City : "New York"
+	},
+	{
+		EmpID : 9,
+		EmployeeName : "Michael",
+		Gender : "Male",
+		Salary : 6500,
+		City : "London"
+	},
+	{
+		EmpID : 10,
+		EmployeeName : "John",
+		Gender : "Male",
+		JoiningDate : "01-Jan-15",
+		Salary : 8800,
+		City : "London"
+	},
+]
