@@ -49,7 +49,7 @@ function Navbar() {
               Exp 10+ Faculties
               <hr className="dropdown-divider" />
             </Link>
-            <Link to="/facultiesdetails" className="nav-link text-dark -4">
+            <Link to="/facultiesdetails" className="nav-link text-dark">
               Fauclty Details
               <hr className="dropdown-divider" />
             </Link>

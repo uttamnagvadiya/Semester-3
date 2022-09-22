@@ -1,3 +1,17 @@
-.carousel-inner{
-  border-radius: 50px;
+.card{
+  background: rgba(0, 0, 0, 0.1);;
+}
+
+.card:hover{
+  background-color: #b9e2ff;
+  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  transition: all 300ms linear;
+  transform: translateY(-7px) scale(1.05); 
+}
+
+.card-img-top{
+  height: 22vh;
 }
