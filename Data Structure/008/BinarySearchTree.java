@@ -45,7 +45,7 @@ class BST{
 
     //Delete Nodes
 
-    public void deleteLeafNode(double data) {
+    public void deleteNodes(double data) {
         
         Node parent = null, temp = root;
 
@@ -92,7 +92,7 @@ class BST{
             Node u = inOrderSuccessor(temp);
             temp.value = u.value;
         }
-
+        System.out.println("Node is Deleted Successfully!");
     }
 
     public Node inOrderSuccessor(Node x) {
@@ -218,7 +218,7 @@ public class BinarySearchTree{
 
                 case 5:
                     System.out.print("Enter the Value : ");
-                    tr.deleteLeafNode(sc.nextDouble());
+                    tr.deleteNodes(sc.nextDouble());
             
                 default:
                     break;
