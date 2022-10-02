@@ -13,7 +13,7 @@ class EvalutionOfPrefixExp {
 
 	static double evaluatePrefix(String exp)
 	{
-		Stack <Double> Stack = new Stack <Double> ();
+		Stack<Double> Stack = new Stack<Double>();
 
 		for (int j = exp.length() - 1; j >= 0; j--) {
 
