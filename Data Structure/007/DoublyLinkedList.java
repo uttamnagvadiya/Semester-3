@@ -260,7 +260,7 @@ public class DoublyLinkedList {
                     System.exit(0);
 
                 default:
-                    System.out.println("Please! Enter the Number between '0 - to - 10' ");
+                    System.out.println("Please! Enter the Choice between '0 - to - 10' ");
                     break;
             }
         }
