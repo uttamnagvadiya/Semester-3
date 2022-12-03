@@ -1,0 +1,44 @@
+<div class="container-fluid p-3">
+    <div class="row justify-content-center">
+        <div class="col-md-5 py-5">
+            <form class="py-5 my-5" [formGroup]="myForm" >
+                <div class="mb-3">
+                    <label for="exampleInputText1" class="form-label fw-bolder"><sup class="text-danger fs-6">* </sup>Faculty Name :</label>
+                    <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" formControlName="FacultyName" >
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputText1" class="form-label fw-bolder"><sup class="text-danger fs-6">* </sup>Faculty Designation :</label>
+                    <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp" formControlName="FacultyDesignation" >
+                </div>
+                <div class="mb-3">
+                    <button type="button" class="btn btn-primary fw-bolder" (click)="CreateORUpdate()" [disabled]="myForm.invalid">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-7">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Faculty Name</th>
+                        <th scope="col">Faculty Designaiton</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                        <hr/>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let faculty of faculties; let i=index">
+                        <td>{{faculty.FacultyName}}</td>
+                        <td>{{faculty.FacultyDesignation}}</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-primary fw-bolder" (click)="Edit(i)">Edit</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-outline-danger fw-bolder" (click)="Delete(i)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

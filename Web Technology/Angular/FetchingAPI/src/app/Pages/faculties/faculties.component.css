@@ -1,0 +1,31 @@
+.card:hover{
+    transform: scale(1.03);
+}
+
+.card-text{
+    font-size: 0.85em;
+}
+
+.label{
+    font-size: small;
+    font-weight: 500;
+}
+
+.label-detail{
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.exp{
+    color: #3398dc ;
+    background: rgba(51, 152, 220, 0.1);
+}
+
+.work{
+    color: #585f69;
+    background: rgba(88, 95, 105, 0.1);
+}
+
+.right-arrow{
+    margin: 2px 0 0 10px;
+}

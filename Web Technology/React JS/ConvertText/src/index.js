@@ -10,6 +10,6 @@ const root = ReactDOM.createRoot(rootElement);
 root.render(
     <>
         <Navbar/>
-        <TextForm/>
+        <TextForm mode={'light'}/>
     </>
 );

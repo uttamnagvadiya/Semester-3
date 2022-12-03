@@ -1,7 +1,8 @@
 .textBox{
-    border: 5px solid blue;
+    border: 5px solid rgb(100, 100, 253);
     font-size: 25px;
 }
 .info{
     text-decoration: underline;
 }
+

@@ -1,0 +1,95 @@
+<div class="container-fluid">
+    <div class="profile row justify-content-centerp-2">
+        <div class="card-profile col-lg-3 ps-0">
+            <div class="row justify-content-center">
+                <div class="card ms-0">
+                    <img [src]="facultyData.FacultyImage" class="card-img-top mx-2" alt="...">
+                    <div class="card-body ms-2 p-0  text-center">
+                        <h5 class="card-title">{{facultyData.FacultyName}}</h5>
+                        <span class="card-text text-danger fw-bolder">{{facultyData.FacultyDesignation}}</span>
+            
+                        <hr class="my-1 mx-2"/>
+            
+                        <div class="m-2">{{facultyData.FacultyQualification}}</div>
+            
+                        <hr class="my-1 mx-2"/>
+            
+                        <div class="container">
+                            <table class="table">
+                                    <tr class="label">
+                                        <td class="py-2">Experience</td>
+                                        <td class="py-2">Working Since</td>
+                                    </tr>
+                                    <tr class="label-detail">
+                                        <td><span class="exp rounded">{{facultyData.FacultyExperience}}</span></td>
+                                        <td><span class="work rounded">{{facultyData.FacultyWorkingSince}}</span></td>
+                                    </tr>
+                            </table>
+                        </div>
+
+                        <hr class="my-1 mx-2"/>
+
+                        <div class="contact-detail container-fluid">
+                            <div class=" d-flex mb-2">
+                                <div class="mx-2"><i class="bi bi-telephone-fill"></i></div> <div class="col-md-10">+91 - {{facultyData.FacultyMobileNumber}}</div>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <div class="mx-2"><i class="bi bi-envelope-fill"></i></div> <div class="col-md-10 email">{{facultyData.FacultyEmail}}</div>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <div class="mx-2"><i class="bi bi-geo-alt-fill"></i></div> <div class="col-md-10">{{facultyData.FacultySeating}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details col-lg-8">
+            <div class="lorem">
+                <h2 class="text-danger"><em><u>Profile</u></em></h2>
+                <hr class="m-0 p-0"/>
+                <p class="">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus vero corporis excepturi rerum voluptatem. 
+                    Facilis officia provident exercitationem deserunt autem amet accusantium dicta, maxime placeat voluptatum 
+                    vitae recusandae ab quam excepturi fugiat odit libero unde doloremque eveniet perspiciatis error sunt blanditiis 
+                    veritatis velit? Iure dicta placeat officia pariatur sed enim debitis earum iusto eum, suscipit, natus, 
+                    consequuntur hic deserunt sit accusamus eligendi.
+                </p>
+            </div>
+
+            <div class="container my-2">
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold m-1">Area of Specialization</div> <div class="col-md-3 ms-3">{{facultyData.FacultyAreaSpecialization}}</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold m-1">Subjects Taught</div> <div class="col-md-7 ms-3">{{facultyData.FacultySubjectsTaught}}</div>
+                </div>
+            </div>
+
+            <div class="my-1">
+                <p class="lorem">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus vero corporis excepturi rerum voluptatem. 
+                    Facilis officia provident exercitationem deserunt autem amet accusantium dicta, maxime placeat voluptatum 
+                    vitae recusandae ab quam excepturi fugiat odit libero unde doloremque eveniet perspiciatis error sunt blanditiis 
+                    veritatis velit? Iure dicta placeat officia pariatur sed enim debitis earum iusto eum, suscipit, natus, 
+                    consequuntur hic deserunt sit accusamus eligendi.
+                </p>
+            </div>
+
+            <div class="btn-buttons my-2">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-secondary fw-bolder mx-2" routerLink="/faculties"><i class="bi bi-arrow-left"></i></button>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-outline-primary fw-bold mx-2" routerLink="/faculty/details/edit/{{facultyData.id}}"><i class="bi bi-pen-fill"></i></button>
+                            <button type="button" class="btn btn-outline-danger fw-bolder me-4" (click)="delete()"><i class="bi bi-trash3-fill"></i></button>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row justify-content-center p-2">
+        <div class="col" *ngFor="let faculty of faculties">
+            <div class="card col-sm-3 my-3" style="width: 18rem;" *ngIf="(+(faculty.FacultyExperience.split('+',2)[0])) >= 10">
+                <img [src]="faculty.FacultyImage" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{faculty.FacultyName}}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div>{{faculty.FacultyExperience}}</div>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

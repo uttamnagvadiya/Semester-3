@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col" *ngFor="let faculty of data">
+        <div class="card col-md-4 m-3 shadow p-3" style="width: 19.5rem;" routerLink="/faculty/profile/{{faculty.id}}">
+            <img [src]="faculty.FacultyImage" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{faculty.FacultyName}}</h5>
+                <span class="card-text text-danger fw-bolder">{{faculty.FacultyDesignation}}</span>
+    
+                <hr class="m-1"/>
+    
+                <div class="m-2">{{faculty.FacultyQualification}}</div>
+    
+                <hr class="m-1"/>
+    
+                <div class="container">
+                    <table class="table">
+                            <tr class="label">
+                                <td class="">Experience</td>
+                                <td class="py-2">Working Since</td>
+                            </tr>
+                            <tr class="label-detail">
+                                <td><span class="exp rounded">{{faculty.FacultyExperience}}</span></td>
+                                <td><span class="work rounded">{{faculty.FacultyWorkingSince}}</span></td>
+                            </tr>
+                    </table>
+                </div>
+    
+                <div class="view-profile d-flex justify-content-center">
+                    <div>View Profile</div><div class="right-arrow"><i class="bi bi-arrow-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
