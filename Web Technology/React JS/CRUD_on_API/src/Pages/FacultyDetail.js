@@ -72,11 +72,9 @@ function FacultyDetail() {
                 <table cellPadding={15}>
                     <tr>
                         <td className="fw-bold fs-5">Area of Specialization</td>
-                        <td>{data.FacultyAreaSpecialization}</td>
                     </tr>
                     <tr>
                         <td className="fw-bold fs-5">Subjects Taught</td>
-                        <td>{data.FacultySubjectsTaught}</td>
                     </tr>
                     <tr>
                         <td className="">
